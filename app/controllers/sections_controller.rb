@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
 
   def show
-    @section = Section.find(params[:chapter_id]) # finds id of a single list
+    @section = Section.find(params[:id])
   end
 
   def new
@@ -38,7 +38,6 @@ class SectionsController < ApplicationController
   end
 
   def destroy
-    @chapter = Chapter.find(params[:chapter_id])
     @section = Section.find(params[:id])
     @section.destroy
     flash[:notice] = "Section Deleted"

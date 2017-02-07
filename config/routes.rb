@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :chapters do  # sets up the 7 restful routs - create delete etc
+  resources :chapters do  
     resources :sections
   end
 
-  # resources :sections do  # sets up the 7 restful routs - create delete etc
-  #   resources :lessons
-  # end
+  resources :sections do
+    resources :lessons
+  end
 end

@@ -1,6 +1,6 @@
 <% content_for(:title, "Chapter") %>
 
-<h1>Chapter: <%= @chapter.name %> </h1>
+<h1>Sections: <%= @chapter.name %></h1>
 
 <% if @chapter.sections.any? %>
   <h4>Here are the sections for this chapter:</h4>
@@ -8,7 +8,7 @@
   <ul>
     <% @chapter.sections.each do |section| %>
       <li>
-        <%= section.name %> |
+        <%= link_to section.name, chapter_section_path(@chapter) %> |
         <%= link_to "Edit", edit_chapter_section_path(@chapter, section) %> |
         <%= link_to "Delete", chapter_section_path(@chapter, section), :data => {:confirm => "Are you sure?",:method => "delete"} %>
       </li>
