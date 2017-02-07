@@ -1,0 +1,7 @@
+<% content_for(:title, "Chapter") %>
+
+<h1>Section: <%= @section.name %> </h1>
+
+<hr>
+<%= link_to "Chapters", chapters_path %> |
+<%= link_to "Delete Section", section_path(@section),:data => {:confirm => "Are you sure?",:method => "delete"} %> |
