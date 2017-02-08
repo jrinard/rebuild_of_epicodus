@@ -1,7 +1,8 @@
 class LessonsController < ApplicationController
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @section = Section.find(params[:section_id])
+    @lesson = Lesson.find(params[:id]) || Lesson.find_by_number(params[:number])
   end
 
   def new
@@ -46,6 +47,5 @@ class LessonsController < ApplicationController
 
   private
     def lesson_params
-      params.require(:lesson).permit(:title, :content)
-    end
+      params.require(:lesson).permit(:title, :content, :number)                               end
   end

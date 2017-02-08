@@ -2,6 +2,13 @@
 
 <h1>Lesson2: <%= @lesson.title %> </h1>
 <h1><%= @lesson.content %> </h1>
+<h1><%= @lesson.number %> </h1>
 <hr>
 <%= link_to "Chapters", chapters_path %> |
 <%= link_to "Delete Lesson", section_lesson_path(@lesson),:data => {:confirm => "Are you sure?",:method => "delete"} %>
+
+<% if @lesson.next_lesson !=nil %>
+<%= link_to "Next", section_lesson_path(@section, @lesson.next_lesson) %>
+<% else %>
+<p> Nope</p>
+<% end %>
